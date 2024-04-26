@@ -13,6 +13,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from "@expo/vector-icons";
 import { RestaurantNavigator } from './src/navigation/restaurants.navigator';
+import MapScreen from './src/features/screens/map/Map.screen';
 const Tab = createBottomTabNavigator();
 
 const TAB_ICONS = {
@@ -63,13 +64,13 @@ function SettingsScreen(){
     </View>
   )
 }
-function MapsScreen(){
-  return(
-    <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-      <Text>Map</Text>
-    </View>
-  )
-}
+// function MapsScreen(){
+//   return(
+//     <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
+//       <Text>Map</Text>
+//     </View>
+//   )
+// }
 
    
   return (   
@@ -88,7 +89,7 @@ function MapsScreen(){
       }}
     > 
       <Tab.Screen name="Restaurants" component={RestaurantNavigator} />
-      <Tab.Screen name="Map" component={MapsScreen} />
+      <Tab.Screen name="Map" component={MapScreen} />
       <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
     {/* {AllRestaurantPart} */}
