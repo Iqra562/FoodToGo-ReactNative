@@ -3,14 +3,18 @@ import React, { useContext, useState } from "react";
 import {styled} from "styled-components";
 import { View } from "react-native";
 import {Searchbar} from "react-native-paper";
+import { LocationContext } from "../../../services/locations/location.context";
+
 
 const SearchContainer = styled(View)`
 padding : ${(props)=>props.theme.space[3]};
 background-color:${(props)=>props.theme.colors.bg.primary}; 
 `
 function MapSearch({isFavourite = false}){
-    const {searchQuery,setSearchQuery} = useState("");
+    const [searchQuery,setSearchQuery] = useState("");
     const onChangeSearch = (query)=>setSearchQuery(query);
+    const {search} = useContext(LocationContext)
+
 return(
 
 <SearchContainer>

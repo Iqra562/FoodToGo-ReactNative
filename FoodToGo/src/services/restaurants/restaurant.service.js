@@ -37,7 +37,7 @@ export const restaurantTransform = (data)=>{
 })
 
 return mappdataresults;
-}
+} 
 // import { mocks } from "./mock/index";
 // import camelize from "camelize";
 
