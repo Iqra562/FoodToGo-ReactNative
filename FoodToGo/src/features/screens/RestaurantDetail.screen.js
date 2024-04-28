@@ -9,7 +9,7 @@ function RestaurantDetailScreen(props){
   const [breakFastExpanded,setBreakFastExpanded] = useState(false);
   const [Lunch,setLunch] = useState(false);
   const [Dinner,setDinner] = useState(false);
-  const [Drinks,setDrinks] = useState(false);
+  const [Drinks,setDrinks] = useState(false); 
     return(
         <SafeAreaView>
             <ScrollView>

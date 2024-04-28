@@ -14,6 +14,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from "@expo/vector-icons";
 import { RestaurantNavigator } from './src/navigation/restaurants.navigator';
 import MapScreen from './src/features/screens/map/Map.screen';
+import { FavoriteContextProvider } from './src/services/favorites/Favorites.context';
 const Tab = createBottomTabNavigator();
 
 const TAB_ICONS = {
@@ -76,6 +77,8 @@ function SettingsScreen(){
   return (   
     
     <ThemeProvider theme={theme}>
+      <FavoriteContextProvider>
+
       <LocationContextProvider>
   <RestaurantProvider>
      <CustomSafeAreaView>
@@ -98,6 +101,8 @@ function SettingsScreen(){
      </CustomSafeAreaView>
   </RestaurantProvider>
 </LocationContextProvider>
+</FavoriteContextProvider>
+
      </ThemeProvider>
   );
 }

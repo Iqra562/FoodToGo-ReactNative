@@ -7,6 +7,7 @@ import CustomText from "../typography/text.component";
 import {SvgXml} from "react-native-svg"
 import star from "../../../../assets/start";
 import open from "../../../../assets/open";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 const RestaurantCard = styled(Card)`
 background-color: ${(props) => props.theme.colors.bg.primary};
 margin-bottom:25px
@@ -68,6 +69,7 @@ function CustomRestaurantCard(props){
   // const ratingArray=  Array.from(rating);
     return<>
         <RestaurantCard>
+          <FavoriteButton  restaurants={restaurant}/>
             <RestaurantCardCover source={{uri: photos}}/>
             <CardSection>
     
