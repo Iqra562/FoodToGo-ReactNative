@@ -5,7 +5,7 @@ import { LocationContext } from '../../services/locations/location.context';
 //  import styled from 'styled-components/native';
 
 
-function UserSearch ({isFavoriteToggle =false}) {
+function UserSearch ({isFavoriteToggle =false,onFavoriteToggle}) {
     const [searchQuery, setSearchQuery] = React.useState('');
     const {search} = useContext(LocationContext)
 // const searchContainer = styled(View)`
@@ -22,6 +22,7 @@ const onChangeSearch = (query)=>setSearchQuery(query)
         placeholder="Search"
         onChangeText={onChangeSearch}
         value={searchQuery} icon={isFavoriteToggle ?"heart":"heart-outline"}
+        onIconPress={onFavoriteToggle}
         onSubmitEditing={()=>{
             // console.log(searchQuery);
             search(searchQuery)

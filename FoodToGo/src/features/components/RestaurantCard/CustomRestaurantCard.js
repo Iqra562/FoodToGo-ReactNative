@@ -12,9 +12,17 @@ const RestaurantCard = styled(Card)`
 background-color: ${(props) => props.theme.colors.bg.primary};
 margin-bottom:25px
 `
+
 const RestaurantCardCover = styled(Card.Cover)`
 margin-bottom : 10px;
 padding:12px;
+`
+const FavoriteRestaurantCardCover = styled(Card.Cover)`
+margin-bottom : 10px;
+width:100%;
+min-width:200px;
+height:100px;
+padding:6px;
 `
 const Title = styled(CustomText)``
 // font-family:${(props) => props.theme.fonts.body };
@@ -54,7 +62,7 @@ const CardSection = styled(View)`
   padding: 15px;
 `;
 function CustomRestaurantCard(props){
-    const {restaurant ={}} = props;
+    const {restaurant ={},  usingFavoriteBar=false} = props;
     const {
     photos =[ "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg"],
     rating=1,
@@ -70,10 +78,17 @@ function CustomRestaurantCard(props){
     return<>
         <RestaurantCard>
           <FavoriteButton  restaurants={restaurant}/>
-            <RestaurantCardCover source={{uri: photos}}/>
+          { 
+          usingFavoriteBar ? 
+           ( <FavoriteRestaurantCardCover  source={{uri: photos}}/>):
+           ( <RestaurantCardCover source={{uri: photos}}/>)
+          } 
             <CardSection>
     
             <Title variant="label" >{name}</Title>
+            {
+              !usingFavoriteBar &&
+            
             <CardInnerSection>    
             <RatingContainer>
     {ratingArray.map((singleRating, index) => (
@@ -97,6 +112,7 @@ CLOSED TEMPORARILY
             </RestaurantStatusContainer>
                 
                  </CardInnerSection>
+}
             </CardSection>
         </RestaurantCard>
     </>

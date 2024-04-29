@@ -1,4 +1,4 @@
-import React, { useContext }  from "react";
+import React, { useContext, useState }  from "react";
 
 import UserSearch from '../components/UserSearch.components'
 import CustomRestaurantCard from "../components/RestaurantCard/CustomRestaurantCard";
@@ -7,6 +7,8 @@ import {styled} from "styled-components";
 import { RestaurantsContext } from "../../services/restaurants/restaurant.context";
 import { LocationContext } from "../../services/locations/location.context";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import FavoriteBar from "../components/FavoriteBar/FavoriteBar";
+import { favoriteContext } from "../../services/favorites/Favorites.context";
 
 const RestaurantListContainer = styled(View)`
   padding: ${(props) => props.theme.space[3]};
@@ -26,15 +28,20 @@ const Loading = styled(ActivityIndicator)``;
 function RestaurantScreen (props){
   const totalRestaurant = Array.from({length:5})
    const {isLoading,restaurants} = useContext(RestaurantsContext);
-   const {isLoading: LocationLoader,location,error} = useContext(LocationContext)
+   const {isLoading: LocationLoader,location,error} = useContext(LocationContext);
+   const [toggle,setToggle] = useState(false);
    const Loaders = isLoading || LocationLoader;
    const {navigation} = props;
+   const {favorites} = useContext(favoriteContext);
+
   //  restaurants.forEach(single => console.log(single?.address ,"correct"));
   //  console.log(location,"ressdfhdfdjkhfkjdhkj")
-  console.log(error)
+  // console.log(error)
   return<>
-    <UserSearch/>
-   
+    <UserSearch  onFavoriteToggle={()=>setToggle(!toggle)}
+    isFavoriteToggle={toggle}
+    />
+   {toggle && <FavoriteBar favoriteRestaurants={favorites}/>}
  {Loaders && (<Loading/>)}
 
     
