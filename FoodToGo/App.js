@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { ThemeProvider } from 'styled-components';
@@ -15,6 +15,9 @@ import { Ionicons } from "@expo/vector-icons";
 import { RestaurantNavigator } from './src/navigation/restaurants.navigator';
 import MapScreen from './src/features/screens/map/Map.screen';
 import { FavoriteContextProvider } from './src/services/favorites/Favorites.context';
+import { initializeApp } from "firebase/app";
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import  * as firebase from "firebase";
 const Tab = createBottomTabNavigator();
 
 const TAB_ICONS = {
@@ -38,13 +41,48 @@ const createScreenOptions = (parameter) => {
 };
 
 
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCDgVDRIapv3xQPI8wpoUQeYpb-giE8GdI",
+//   authDomain: "foodtogo-4daff.firebaseapp.com",
+//   projectId: "foodtogo-4daff",
+//   storageBucket: "foodtogo-4daff.appspot.com",
+//   messagingSenderId: "358560105794",
+//   appId: "1:358560105794:web:faa46fe0031efeee2cf4db",
+//   measurementId: "G-K2WCGNT80K"
+// };
+
+
+
+//  initializeApp(firebaseConfig);
+
+// const analytics = getAnalytics(app);
+
 export default function App() {
+  const [isAuthenticated,setIsAuthenticated]= useState(false);
   // let  [oswaldFont] = useOswald({
   //   Oswald_400Regular
   // });
   // let [latoFont] = useLato({
   //   Lato_400Regular
   // })
+
+  // useEffect(()=>{
+  //   setTimeout(()=>{
+  //     const auth = getAuth();
+  //     createUserWithEmailAndPassword(auth, email, password)
+  //       .then((userCredential) => {
+  //         // Signed up 
+  //         const user = userCredential.user;
+  //         // ...
+  //       })
+  //       .catch((error) => {
+  //         const errorCode = error.code;
+  //         const errorMessage = error.message;
+  //         // ..
+  //       });
+       
+  //   },2000)
+  // },[])
 
   const Title = styled(Text)`
     font-size: 100px;
@@ -65,14 +103,11 @@ function SettingsScreen(){
     </View>
   )
 }
-// function MapsScreen(){
-//   return(
-//     <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-//       <Text>Map</Text>
-//     </View>
-//   )
-// }
 
+// if(!isAuthenticated){
+// return null;
+
+// }
    
   return (   
     
