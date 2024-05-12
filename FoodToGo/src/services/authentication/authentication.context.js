@@ -17,7 +17,7 @@ setIsAuthenticated(true)
   await LoginRequest(email,password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user,"user")
+        // console.log(user,"user")c
         if(user){
          setIsAuthenticated(true);
          setUser(user);

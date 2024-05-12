@@ -13,7 +13,7 @@ return(
     <AccountContainer> 
  
 <AuthButton icon="lock-open-outline" mode="contained">Register </AuthButton>
-<AuthButton icon="email" mode="contained" onPress={()=> navigation.navigate("Login")}>Login</AuthButton>
+<AuthButton icon="email" mode="contained" onPress={()=> navigation.navigate("Login")}>Login </AuthButton>
     </AccountContainer>
  </AccountBackground>
 )
