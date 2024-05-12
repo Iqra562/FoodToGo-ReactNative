@@ -17,8 +17,10 @@ import { FavoriteContextProvider } from './src/services/favorites/Favorites.cont
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { AuthenticationProvider } from './src/services/authentication/authentication.context';
-import AppNavigator from './src/navigation/app.navigator';
+import AppNavigator from './src/navigation/FoodApp.navigator';
 import CustomNavigation from './src/navigation/CustomNavigation';
+// import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
+
 // import  * as firebase from "firebase";
 // const Tab = createBottomTabNavigator();
 
@@ -41,7 +43,7 @@ import CustomNavigation from './src/navigation/CustomNavigation';
 //     headerShown: false,
 //   };
 // };
-
+ 
 
 const firebaseConfig = {
   apiKey: "AIzaSyCDgVDRIapv3xQPI8wpoUQeYpb-giE8GdI",
@@ -52,7 +54,6 @@ const firebaseConfig = {
   appId: "1:358560105794:web:faa46fe0031efeee2cf4db",
   measurementId: "G-K2WCGNT80K"
 };
-
 
 
   initializeApp(firebaseConfig);

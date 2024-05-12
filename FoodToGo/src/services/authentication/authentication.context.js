@@ -11,8 +11,9 @@ const [isLoading,setIsLoading]= useState(false);
 const [error,setError] = useState(null);
 
 const onLogin= async(email,password)=>{
-
+// await console.log(email,password,"djklshj");
 setIsLoading(true);
+setIsAuthenticated(true)
   await LoginRequest(email,password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -21,12 +22,13 @@ setIsLoading(true);
          setIsAuthenticated(true);
          setUser(user);
         }
+
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         setError(errorMessage.toString());
-        // console.log(error,"error")
+        console.log(error,"error")
         
       });
       setIsLoading(false)

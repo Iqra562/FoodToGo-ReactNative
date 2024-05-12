@@ -12,7 +12,7 @@ function LoginScreen({navigation}){
   const [password,setPassword] = useState("");
 
   const con = () => {
-    console.log(email, password);
+    console.log("jjdhjkh");
   };
   
 return(
@@ -21,7 +21,7 @@ return(
 
     <Title> Login </Title>
     <AccountContainer> 
-    <AuthInput
+    <AuthInput  
           label="E-mail"
           textContentType="emailAddress"
           keyboardType="email-address"
@@ -36,7 +36,10 @@ return(
 
 {/* <AuthButton icon="lock-open-outline" mode="contained"   onPress={() => onLogin(email, password)}
           loading={isLoading}>Login </AuthButton> */}
-<AuthButton icon="lock-open-outline" mode="contained"   onPress={()=>con()}
+<AuthButton icon="lock-open-outline" mode="contained"   onPress={
+  ()=>onLogin(email,password)
+// ()=>con()
+}
           loading={isLoading}>Login </AuthButton>
 <AuthButton icon="lock-open-outline" mode="contained" onPress={()=>navigation.goBack()}>Go Back </AuthButton>
     </AccountContainer>
